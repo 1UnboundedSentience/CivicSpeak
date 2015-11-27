@@ -33,6 +33,9 @@ class VideosController < ApplicationController
     @user = User.find(session[:user_id])
     @reviews = Review.where(video_id: @video.id)
     @review = Review.new()
+    @topic_prompts = TopicPrompt.all
+    offset = rand(TopicPrompt.count)
+    @rand_record = TopicPrompt.offset(offset).first
   end
 
   def edit

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909232856) do
+ActiveRecord::Schema.define(version: 20151126045754) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "video_id"
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20150909232856) do
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
   add_index "reviews", ["video_id"], name: "index_reviews_on_video_id"
+
+  create_table "topic_prompts", force: :cascade do |t|
+    t.string   "speaking_topic"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
